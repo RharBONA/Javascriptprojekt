@@ -46,6 +46,27 @@ nav {
 
 
 
+/* ILYAS */
+.nav-link .dropdown-menu {
+  z-index: 1000;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.dropdown-item img {
+  transition: transform 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
 
 
 /* VITHULAN */
