@@ -254,7 +254,7 @@ nav ul li a:hover {
   font-size: 50px;
   padding: 8px 12px;
   position: absolute;
-  bottom: 850px;
+  bottom: 900px;
   width: 100%;
   text-align: center;
 }
@@ -308,12 +308,18 @@ nav ul li a:hover {
   font-family: inherit;
   font-size: 18px;
   padding: 15px 30px;
-  margin-top: 20px;
+  margin-top: -920px;
   text-align: center;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
+  border-radius: 5px;
+  
+}
+.see-more-button:hover{
+  background-color: #333333;
+  
 }
 
 .button-container {
