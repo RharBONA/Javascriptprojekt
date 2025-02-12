@@ -1,6 +1,79 @@
 * {
   border: 0px dotted black;
 }
+/* Ilyas */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  position: relative;
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  z-index: 100;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.search {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.model-item {
+  display: flex;
+  align-items: center;
+}
+
+.model-item img {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.model-item img:hover {
+  transform: scale(1.1);
+}
+
 
 /* Casper har lavet denne - skulle gerne være font fra Audi hjemmeside*/
 @font-face {
@@ -122,11 +195,11 @@ input[type="range"]::-moz-range-thumb {
   width: 50px;
   text-align: right;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .output {
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
   margin-top: 20px;
   padding: 15px;
@@ -136,8 +209,12 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Ilyas */
-
-/* Ilyas - Navigation */
+ /* Ilyas - Navigation */
+ nav {
+  background: #fffdfd;
+  padding: 8px 0;
+  font-size: 10px
+}
 
 nav ul {
   list-style: none;
@@ -154,7 +231,7 @@ nav ul li {
 nav ul li a {
   display: block;
   color: rgb(0, 0, 0);
-  padding: 10px 20px;
+  padding: 8x 16px;
   text-decoration: none;
 }
 
@@ -167,7 +244,7 @@ nav ul li a:hover {
   display: none;
   position: absolute;
   background: rgb(255, 249, 249);
-  padding: 10px;
+  padding: 8px;
   border: 1px solid #ddd;
   list-style: none;
   width: 200px;
@@ -192,10 +269,8 @@ nav ul li a:hover {
   transform: scale(1.1);
 }
 
-#availability-message,
-#offer-message,
-#model-count {
-  font-size: 18px;
+#availability-message, #offer-message, #model-count {
+  font-size: 12px;
   font-weight: bold;
   margin-top: 10px;
 }
