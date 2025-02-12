@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
   const models = [
-      { name: "Audi R8", img: "/JSprojekt/Billeder/audi_r8.jpg", type: "Racerbil" },
-      { name: "Audi e-tron", img: "/JSprojekt/Billeder/audi_etron.jpg", type: "Elbil" },
-      { name: "Audi Q7", img: "/JSprojekt/Billeder/audi_q7.jpg", type: "Familiebil" },
-      { name: "Audi A6 Allroad", img: "/JSprojekt/Billeder/audi_a6_allroad.jpg", type: "Arbejdsbil" },
-      { name: "Audi Q8", img: "/JSprojekt/Billeder/audi_q8.jpg", type: "Stor bil" },
-      { name: "Audi RS6 Avant", img: "/JSprojekt/Billeder/audi_rs6.jpg", type: "Limited edition" },
-      { name: "Audi A1", img: "/JSprojekt/Billeder/audi_a1.jpg", type: "Lille bil" },
-      { name: "Audi A3 TDI", img: "/JSprojekt/Billeder/audi_a3_tdi.jpg", type: "Økonomisk bil" }
+
+      { name: "Audi R8", img: "/JSprojekt/Billeder/audi_r8.png", type: "Racerbil" },
+      { name: "Audi e-tron", img: "/JSprojekt/Billeder/audi_etron.png", type: "Elbil" },
+      { name: "Audi Q7", img: "/JSprojekt/Billeder/audi_q7.png", type: "Familiebil" },
+      { name: "Audi A6 Allroad", img: "/JSprojekt/Billeder/audi_a6_allroad.png", type: "Arbejdsbil" },
+      { name: "Audi Q8", img: "/JSprojekt/Billeder/audi_q8.png", type: "Stor bil" },
+      { name: "Audi RS6 Avant", img: "/JSprojekt/Billeder/audi_rs6.png", type: "Limited edition" },
+      { name: "Audi A1", img: "/JSprojekt/Billeder/audi_a1.png", type: "Lille bil" },
+      { name: "Audi A3 TDI", img: "/JSprojekt/Billeder/audi_a3_tdi.png", type: "Økonomisk bil" }
+
   ];
 
   let modelDropdown = document.getElementById("model-dropdown");
