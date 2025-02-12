@@ -1,24 +1,20 @@
 function updateValues() {
-  // Hent inputfelter
-  const driveLengthInput = document.getElementById("driveLength");
-  const leasingMonthsInput = document.getElementById("leasingLength");
-  const initialPaymentInput = document.getElementById("initialPayment");
+  // Definer input ID'er
+  const inputIds = ["driveLength", "leasingLength", "initialPayment"];
+  const outputIds = ["driveLengthValue", "leasingValue", "initialPaymentValue"];
 
-  // Hent outputfelter
-  const driveLengthValue = document.getElementById("driveLengthValue");
-  const leasingValue = document.getElementById("leasingValue");
-  const initialPaymentValue = document.getElementById("initialPaymentValue");
-  const output = document.getElementById("output");
+  // Hent inputværdier ved hjælp af et loop
+  let inputValues = inputIds.map(
+    (id) => parseInt(document.getElementById(id).value) || 0
+  );
 
-  // Konverter inputværdier til tal
-  let driveLength = parseInt(driveLengthInput.value) || 0;
-  let leasingMonths = parseInt(leasingMonthsInput.value) || 0;
-  let initialPayment = parseInt(initialPaymentInput.value) || 0;
+  let [driveLength, leasingMonths, initialPayment] = inputValues; // Destructuring
 
-  // Opdater UI med inputværdier
-  driveLengthValue.innerText = driveLength.toLocaleString();
-  leasingValue.innerText = leasingMonths;
-  initialPaymentValue.innerText = initialPayment.toLocaleString();
+  // Opdater UI ved hjælp af et loop
+  inputValues.forEach((value, index) => {
+    document.getElementById(outputIds[index]).innerText =
+      value.toLocaleString();
+  });
 
   // Beregn månedlig betaling
   let monthlyPayment = calculateMonthlyPayment(
@@ -33,13 +29,20 @@ function updateValues() {
   // Beregn restværdi
   let residualValue = calculateResidualValue(totalCost);
 
-  // Opdater UI med beregninger
-  output.innerHTML = `
-      <p>Månedlig betaling: ${monthlyPayment.toLocaleString()} kr.</p>
-      <p>Førstegangsydelse: ${initialPayment.toLocaleString()} kr.</p>
-      <p>Samlet pris: ${totalCost.toLocaleString()} kr.</p>
-      <p>Restværdi efter leasingperiode: ${residualValue.toLocaleString()} kr.</p>
-    `;
+  // Definer output data
+  const results = [
+    { label: "Månedlig betaling", value: monthlyPayment },
+    { label: "Førstegangsydelse", value: initialPayment },
+    { label: "Samlet pris", value: totalCost },
+    { label: "Restværdi efter leasingperiode", value: residualValue },
+  ];
+
+  // Opdater UI dynamisk
+  document.getElementById("output").innerHTML = results
+    .map(
+      (result) => `<p>${result.label}: ${result.value.toLocaleString()} kr.</p>`
+    )
+    .join("");
 }
 
 // Funktion til at beregne månedlig betaling
@@ -49,8 +52,8 @@ function calculateMonthlyPayment(driveLength, leasingMonths, initialPayment) {
   let monthlyPayment = baseMonthlyPayment + driveCostFactor;
 
   // Justering for leasinglængde
-  if (leasingMonths === 12) monthlyPayment += 1000;
-  else if (leasingMonths === 48) monthlyPayment -= 500;
+  const leasingAdjustments = { 12: 1000, 48: -500 };
+  monthlyPayment += leasingAdjustments[leasingMonths] || 0;
 
   // Reducer baseret på førstegangsbetaling
   let downPaymentEffect = initialPayment * 0.005;
@@ -62,8 +65,8 @@ function calculateMonthlyPayment(driveLength, leasingMonths, initialPayment) {
 // Funktion til at beregne restværdi
 function calculateResidualValue(totalCost) {
   let originalCarValue = 400000;
-  let depreciationFactor = 0.4; // 40% værditab
-  let minimumResidualValue = originalCarValue * 0.2; // Minimum restværdi 20%
+  let depreciationFactor = 0.4;
+  let minimumResidualValue = originalCarValue * 0.2;
 
   let residualValue =
     originalCarValue * (1 - depreciationFactor) - totalCost * 0.2;
