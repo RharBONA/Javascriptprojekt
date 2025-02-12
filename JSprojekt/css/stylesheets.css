@@ -1,16 +1,16 @@
+/* Global reset */
 * {
   border: 0px dotted black;
 }
 
 /* Ilyas */
-
-
 .ilyas-navbar {
   background-color: white;
   border-bottom: 3px solid black;
   display: flex;
   align-items: center;
   padding: 10px 20px;
+  position: relative; /* Added to ensure z-index works */
 }
 
 .ilyas-logo {
@@ -52,6 +52,7 @@
   list-style: none;
   padding: 0;
   width: 200px;
+  z-index: 10; /* Ensures dropdown is in front of other elements */
 }
 
 .ilyas-dropdown:hover .ilyas-dropdown-menu {
@@ -67,8 +68,7 @@
   border: 1px solid black;
 }
 
-
-/* Casper har lavet denne - skulle gerne være font fra Audi hjemmeside*/
+/* Casper har lavet denne - skulle gerne være font fra Audi hjemmeside */
 @font-face {
   font-family: "auditype";
   src: url(/font/Auditype\ Extended\ Normal.woff2) format(woff2),
@@ -87,7 +87,6 @@ body {
   color: #000000;
   padding: 0;
 }
-
 
 /* Casper leasing beregner */
 .leasing-container {
@@ -164,7 +163,6 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 0px;
   text-align: left;
 }
-
 
 /* VITHULAN */
 
@@ -262,6 +260,7 @@ input[type="range"]::-moz-range-thumb {
     opacity: 1;
   }
 }
+
 .see-more-button {
   display: flex;
   background-color: #000000;
@@ -278,19 +277,18 @@ input[type="range"]::-moz-range-thumb {
   transform: translateX(-50%);
   cursor: pointer;
   border-radius: 5px;
-  
 }
-.see-more-button:hover{
+
+.see-more-button:hover {
   background-color: #333333;
-  
 }
 
 .button-container {
   text-align: center; /* Centrerer knappen horisontalt */
   margin-top: 20px; /* Giver lidt afstand fra slideren */
 }
-/* Jakob */
 
+/* Jakob */
 .car-color-selector h2 {
   text-align: left;
   align-self: flex-start;
