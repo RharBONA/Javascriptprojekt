@@ -1,96 +1,54 @@
-document.addEventListener("DOMContentLoaded", () => {
-const navLinks = document.querySelectorAll('.nav-link');
-//Til mine dropdown menuer// 
-const dropdownData = {
-    Home: ['Book prøvetur', 'Find forhandler', 'Priser og brochurer'],
-    Modeloverblik: [
-        { name: 'Audi R8 (Racerbil)', img: '/JSprojekt/Billeder/r8.jpg'},
-        { name: 'Audi Q4 e-tron (El-bil)', img: '/JSprojekt/Billeder/q4-e-tron.jpg' },
-        { name: 'Audi A6 Avant (Familievogn)', img: '/JSprojekt/Billeder/a6-avant.jpg' },   
-        { name: 'Audi Q7 (Arbejdsbil)', img: '/JSprojekt/Billeder/q7.jpg' },
-        { name: 'Audi Q8 (Stor bil)', img: '/JSprojekt/Billeder/q8.jpg' },
-        { name: 'Audi RS7 (Limited Edition)', img: '/JSprojekt/Billeder/rs7.jpg' },
-        { name: 'Audi A1 (Lille bil)', img: '/JSprojekt/Billeder/a1.jpg' },
-        { name: 'Audi A3 TDI (Økonomisk bil)', img: '/JSprojekt/Billeder/a3-tdi.jpg' }
-        ],
-        'Find og køb': ['Kampagner', 'Finansiering', 'Forsikring', 'Elektrisk og hybrid', 'Opladning'],
-        'Service og tilbehør': ['Audi SPORT', 'Om Audi', 'Kontakt os', 'Karriere'],
-        'Alt om elbiler': ['System', 'Tilslutningsmuligheder', 'Forsikring', 'Andet'],
-        'Stories of Progress': ['Audi 1910', 'Audi 1932', 'Audi S']
-      };
-      
-        //For at lave dropdown menuer, prøver jeg dette//
-        const createDropdown = (items, parentLink) => {
-            const dropdown = document.createElement('div');
-            dropdown.classList.add('dropdown-menu');
-//Note til mig at huske: if er til hvis der ikke er billeder - Else er til når der er billeder//
-            if (Array.isArray(items)) {
-                items.forEach(item => {
-                    const dropdownItem = document.createElement('a');
-                    dropdownItem.href = '#';
-                    dropdownItem.textContent = item;
-                    dropdownItem.classList.add('dropdown-item');
-                    dropdown.appendChild(dropdownItem);
-                  });
-                
-                } else {
-                    items.forEach(item => {
-                        const dropdownItem = document.createElement('div');
-                        dropdownItem.classList.add('dropdown-item');
+document.addEventListener("DOMContentLoaded", function() {
+  const models = [
 
-                        const img = document.createElement('img');
-      img.src = item.img;
-      img.alt = item.name;
-      img.style.width = '100px';
-      img.style.borderRadius = '8px';
-      img.style.transition = 'transform 0.3s';
-      
-      const text = document.createElement('span');
-      text.textContent = item.name;
+      { name: "Audi R8", img: "/JSprojekt/Billeder/audi_r8.png", type: "Racerbil" },
+      { name: "Audi e-tron", img: "/JSprojekt/Billeder/audi_etron.png", type: "Elbil" },
+      { name: "Audi Q7", img: "/JSprojekt/Billeder/audi_q7.png", type: "Familiebil" },
+      { name: "Audi A6 Allroad", img: "/JSprojekt/Billeder/audi_a6_allroad.png", type: "Arbejdsbil" },
+      { name: "Audi Q8", img: "/JSprojekt/Billeder/audi_q8.png", type: "Stor bil" },
+      { name: "Audi RS6 Avant", img: "/JSprojekt/Billeder/audi_rs6.png", type: "Limited edition" },
+      { name: "Audi A1", img: "/JSprojekt/Billeder/audi_a1.png", type: "Lille bil" },
+      { name: "Audi A3 TDI", img: "/JSprojekt/Billeder/audi_a3_tdi.png", type: "Økonomisk bil" }
 
-      const text = document.createElement('span');
-      text.textContent = item.name;
+  ];
 
-      dropdownItem.appendChild(img);
-      dropdownItem.appendChild(text);
+  let modelDropdown = document.getElementById("model-dropdown");
+  let isDropdownFilled = false;
 
-     //Prøver at se om hovereffekt virker her// 
-     
-     dropdownItem.addEventListener('mouseover', () => {
-        img.style.transform = 'scale(1.1)';
+  function generateModelList(modelsArray) {
+      modelsArray.forEach(model => {
+          let listItem = document.createElement("li");
+          let img = document.createElement("img");
+          let text = document.createElement("p");
+
+          img.src = model.img;
+          img.alt = model.name;
+          img.classList.add("hover-effect"); // Tilføjer hover effekt via CSS
+          text.textContent = `${model.name} - ${model.type}`;
+
+          listItem.appendChild(img);
+          listItem.appendChild(text);
+          modelDropdown.appendChild(listItem);
       });
-      dropdownItem.addEventListener('mouseout', () => {
-        img.style.transform = 'scale(1)';
-      });
-      dropdown.appendChild(dropdownItem);
-    });
   }
 
-  dropdown.style.display = 'none';
-  dropdown.style.position = 'absolute';
-  dropdown.style.backgroundColor = 'white';
-  dropdown.style.border = '1px solid #ccc';
-  dropdown.style.padding = '10px';
-  dropdown.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+  if (!isDropdownFilled) {
+      generateModelList(models);
+      isDropdownFilled = true;
+  }
 
-  parentLink.style.position = 'relative';
-  parentLink.appendChild(dropdown);
+  let upcomingModel;
+  console.log("Ny model:", upcomingModel); 
 
-  //Nu skal den vises og skjules//
+  let discontinuedModel = null;
+  console.log("Udgået model:", discontinuedModel); 
 
-  parentLink.addEventListener('mouseover', () => {
-    dropdown.style.display = 'block';
-  });
-  parentLink.addEventListener('mouseout', () => {
-    dropdown.style.display = 'none';
-  });
-};
+  function showMessage() {
+      let message = "Velkommen til Audi"; 
+      console.log(message);
+  }
+  showMessage();
 
-// Navigationselementerne//
-navLinks.forEach(link => {
-    const text = link.textContent.trim();
-    if (dropdownData[text]) {
-      createDropdown(dropdownData[text], link);
-    }
-  });
+  let specialOfferText = "Spar 10% på service!";
+  console.log(specialOfferText);
 });
