@@ -37,4 +37,4 @@ function currentSlide(n) {
 }
 setInterval(function() {
   plusSlides(1);
-}, 3000); 
+}, 3000)
