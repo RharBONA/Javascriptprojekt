@@ -1,77 +1,70 @@
 * {
   border: 0px dotted black;
 }
+
 /* Ilyas */
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
 
-.navbar {
+.ilyas-navbar {
+  background-color: white;
+  border-bottom: 3px solid black;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: black;
   padding: 10px 20px;
 }
 
-.logo {
-  height: 50px;
+.ilyas-logo {
+  height: 40px;
 }
 
-.nav-links {
+.ilyas-nav-links {
   list-style: none;
-  padding: 0;
   display: flex;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
 }
 
-.nav-links li {
+.ilyas-nav-links li {
   position: relative;
-  margin: 0 15px;
 }
 
-.nav-links a {
+.ilyas-nav-links a {
   text-decoration: none;
-  color: white;
-  font-size: 16px;
+  color: black;
+  padding: 10px 15px;
+  display: block;
+  font-weight: bold;
 }
 
-.dropdown-menu {
+.ilyas-nav-links a:hover {
+  background-color: black;
+  color: white;
+}
+
+.ilyas-dropdown-menu {
   display: none;
   position: absolute;
+  top: 100%;
+  left: 0;
   background-color: white;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-  padding: 10px;
-  z-index: 100;
+  border: 1px solid black;
+  list-style: none;
+  padding: 0;
+  width: 200px;
 }
 
-.dropdown:hover .dropdown-menu {
+.ilyas-dropdown:hover .ilyas-dropdown-menu {
   display: block;
 }
 
-.search {
+.ilyas-dropdown-menu li {
+  padding: 10px;
+}
+
+.ilyas-search {
   padding: 5px;
-  border-radius: 5px;
-  border: none;
-}
-
-.model-item {
-  display: flex;
-  align-items: center;
-}
-
-.model-item img {
-  width: 80px;
-  height: auto;
-  margin-right: 10px;
-  transition: transform 0.3s ease;
-}
-
-.model-item img:hover {
-  transform: scale(1.1);
+  border: 1px solid black;
 }
 
 
@@ -95,44 +88,6 @@ body {
   padding: 0;
 }
 
-.navbar {
-  width: 100%;
-  height: 72px;
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  box-sizing: border-box;
-  position: relative;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-nav {
-  display: flex;
-  gap: 24px;
-}
-
-.nav-link {
-  color: #666666;
-  font-size: 16px;
-  font-weight: 400;
-  text-decoration: none;
-  line-height: 24px;
-}
-
-.nav-link:hover {
-  color: black;
-}
-
-.search-icon {
-  display: flex;
-  align-items: center;
-}
 
 /* Casper leasing beregner */
 .leasing-container {
@@ -210,72 +165,6 @@ input[type="range"]::-moz-range-thumb {
   text-align: left;
 }
 
-/* Ilyas */
- /* Ilyas - Navigation */
- nav {
-  background: #fffdfd;
-  padding: 8px 0;
-  font-size: 10px
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-}
-
-nav ul li {
-  position: relative;
-}
-
-nav ul li a {
-  display: block;
-  color: rgb(0, 0, 0);
-  padding: 10px 20px;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  background: #333333;
-}
-
-/* Ilyas styling til dropdown */
-.dropdown ul {
-  display: none;
-  position: absolute;
-  background: rgb(255, 249, 249);
-  padding: 10px;
-  border: 1px solid #ddd;
-  list-style: none;
-  width: 200px;
-  top: 100%;
-  left: 0;
-}
-
-.dropdown:hover ul {
-  display: block;
-}
-
-/* Ilyas bilmodellerne */
-#model-dropdown img {
-  width: 150px;
-  height: auto;
-  display: block;
-  margin: 5px 0;
-  transition: transform 0.3s ease-in-out;
-}
-
-#model-dropdown img:hover {
-  transform: scale(1.1);
-}
-
-#availability-message, #offer-message, #model-count {
-  font-size: 12px;
-  font-weight: bold;
-  margin-top: 10px;
-}
 
 /* VITHULAN */
 

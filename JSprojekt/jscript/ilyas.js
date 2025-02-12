@@ -1,3 +1,4 @@
+// Opretter en liste af Audi-modeller som et array af objekter
 const models = [
     { name: "Audi R8", img1: "images/audi_r8.png", img2: "images/audi_r8_alt.png", type: "Racerbil" },
     { name: "Audi e-tron", img1: "images/audi_etron.png", img2: "images/audi_etron_alt.png", type: "Elbil" },
@@ -9,51 +10,80 @@ const models = [
     { name: "Audi A3 TDI", img1: "images/audi_a3_tdi.png", img2: "images/audi_a3_tdi_alt.png", type: "Økonomisk bil" }
 ];
 
-const modelMenu = document.getElementById("model-menu");
+// Funktion til at generere model-listen i dropdown-menuen
+document.addEventListener("DOMContentLoaded", function() {
+    const modelList = document.getElementById("ilyas-model-list");
 
-// Generer dropdown-menu med biler
-models.forEach(model => {
-    let li = document.createElement("li");
-    li.classList.add("model-item");
+    models.forEach((model) => {
+        let listItem = document.createElement("li");
+        let img = document.createElement("img");
+        let name = document.createElement("span");
 
-    let img = document.createElement("img");
-    img.src = model.img1;
-    img.alt = model.name;
+        img.src = model.img1;
+        img.alt = model.name;
+        img.style.width = "100px";
+        img.style.transition = "0.5s";
+        name.textContent = model.name;
+        name.style.color = "black";
+        name.style.display = "block";
+        name.style.textAlign = "center";
 
-    // Billedeskift
-    let isFirstImage = true;
-    setInterval(() => {
-        img.src = isFirstImage ? model.img2 : model.img1;
-        isFirstImage = !isFirstImage;
-    }, 2000);
+        listItem.appendChild(img);
+        listItem.appendChild(name);
+        modelList.appendChild(listItem);
 
-    let span = document.createElement("span");
-    span.textContent = model.name;
+        let isFirstImage = true;
+        setInterval(() => {
+            img.src = isFirstImage ? model.img2 : model.img1;
+            isFirstImage = !isFirstImage;
+        }, 2000);
 
-    li.appendChild(img);
-    li.appendChild(span);
-    modelMenu.appendChild(li);
+        listItem.addEventListener("mouseenter", () => {
+            img.style.transform = "scale(1.1)";
+        });
+
+        listItem.addEventListener("mouseleave", () => {
+            img.style.transform = "scale(1)";
+        });
+    });
+
+    // Boolean check
+    let serviceDiscount = true;
+    if (serviceDiscount) {
+        alert("Spar 10% på service i denne uge!");
+    }
+
+    // If-else logic
+    function checkCarAvailability() {
+        let carName = prompt("Hvilken bilmodel leder du efter?");
+        let carFound = models.some(model => model.name.toLowerCase() === carName.toLowerCase());
+
+        if (carFound) {
+            alert("Ja, modellen er på lager!");
+        } else {
+            alert("Desværre, modellen er ikke på lager.");
+        }
+    }
+
+    // Brug af variabler, operators og arithmetic operations
+    let priceBeforeDiscount = 500000;
+    let discount = 0.1; // 10% rabat
+    let finalPrice = priceBeforeDiscount - (priceBeforeDiscount * discount);
+    console.log("Pris efter rabat:", finalPrice);
+
+    // Global og lokal scope
+    let globalVar = "Jeg er global";
+    function testScope() {
+        let localVar = "Jeg er lokal";
+        console.log(globalVar);
+        console.log(localVar);
+    }
+    testScope();
+
+    // Event handler for at tjekke biltilgængelighed
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkCarAvailability();
+        }
+    });
 });
-
-// Tjek tilgængelighed
-function checkAvailability(model) {
-    const availability = {
-        "Audi R8": 4,
-        "Audi A4": 0
-    };
-
-    if (availability[model] > 0) {
-        alert(`${model} er tilgængelig! Der er ${availability[model]} tilbage.`);
-    } else {
-        alert(`${model} er desværre ikke på lager.`);
-    }
-}
-
-// Rabat på elbiler
-function checkDiscount(model) {
-    if (model === "Audi e-tron") {
-        alert("Tillykke! Du får 10% rabat på denne elbil.");
-    } else {
-        alert("Ingen rabat på denne model.");
-    }
-}
