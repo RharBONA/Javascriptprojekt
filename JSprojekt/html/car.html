@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Color Selector</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/JSprojekt/css/carstyles.css" />
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+    <div class="container">
+      <div class="content">
+        <div class="slideshow-container">
+          <img
+            id="carImage"
+            src="/JSprojekt/images/bluecar.jpeg"
+            alt="Car Image"
+          />
+        </div>
+
+        <div class="color-selector">
+          <h2>Lakfarver</h2>
+          <div class="color-option selected" id="black">
+            <div class="color-circle black"></div>
+            <div>
+              <p>Magnetgrå</p>
+              <span>0 kr.</span>
+            </div>
+          </div>
+
+          <div class="color-option" id="white">
+            <div class="color-circle white"></div>
+            <div>
+              <p>Hvid</p>
+              <span>12.000 kr.</span>
+            </div>
+          </div>
+
+          <div class="color-option" id="blue">
+            <div class="color-circle blue"></div>
+            <div>
+              <p>Blå</p>
+              <span>12.000 kr.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/JSprojekt/jscript/carjs.js" defer></script>
+  </body>
+</html>
