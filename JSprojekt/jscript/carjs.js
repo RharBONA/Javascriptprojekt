@@ -46,20 +46,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 $(document).ready(function () {
-  // Load the navbar from navbar.html into the container
+  // Indlæs navbar fra navbar.html i navbar-container
   $("#navbar-container").load("navbar.html");
 
-  // Add event listener to handle page switching
+  // Tilføj event listener for at håndtere sideskift
   $(".nav-link").click(function (event) {
-    event.preventDefault(); // Prevent default link behavior
+    event.preventDefault(); // Forhindr standard linkadfærd
 
-    // Get the target page ID from the data-page attribute
+    // Hent ID for mål-side fra data-page attributten
     var targetPage = $(this).data("page");
 
-    // Hide all pages
+    // Skjul alle sider
     $(".page").removeClass("active").hide();
 
-    // Show the target page
+    // Vis mål-siden
     $("#" + targetPage)
       .addClass("active")
       .show();
