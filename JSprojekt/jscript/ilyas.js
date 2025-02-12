@@ -1,75 +1,52 @@
-//For at lave dropdown menuer, prøver jeg dette//
+document.addEventListener("DOMContentLoaded", function() {
+  const models = [
+      { name: "Audi R8", img: "/JSprojekt/Billeder/audi_r8.jpg", type: "Racerbil" },
+      { name: "Audi e-tron", img: "/JSprojekt/Billeder/audi_etron.jpg", type: "Elbil" },
+      { name: "Audi Q7", img: "/JSprojekt/Billeder/audi_q7.jpg", type: "Familiebil" },
+      { name: "Audi A6 Allroad", img: "/JSprojekt/Billeder/audi_a6_allroad.jpg", type: "Arbejdsbil" },
+      { name: "Audi Q8", img: "/JSprojekt/Billeder/audi_q8.jpg", type: "Stor bil" },
+      { name: "Audi RS6 Avant", img: "/JSprojekt/Billeder/audi_rs6.jpg", type: "Limited edition" },
+      { name: "Audi A1", img: "/JSprojekt/Billeder/audi_a1.jpg", type: "Lille bil" },
+      { name: "Audi A3 TDI", img: "/JSprojekt/Billeder/audi_a3_tdi.jpg", type: "Økonomisk bil" }
+  ];
 
+  let modelDropdown = document.getElementById("model-dropdown");
+  let isDropdownFilled = false;
 
-const createDropdown = (items, parentLink) => {
-  const dropdown = document.createElement('div');
-  dropdown.classList.add('dropdown-menu');
+  function generateModelList(modelsArray) {
+      modelsArray.forEach(model => {
+          let listItem = document.createElement("li");
+          let img = document.createElement("img");
+          let text = document.createElement("p");
 
-}
-//Note til mig at huske: if er til hvis der ikke er billeder - Else er til når der er billeder//
+          img.src = model.img;
+          img.alt = model.name;
+          img.classList.add("hover-effect"); // Tilføjer hover effekt via CSS
+          text.textContent = `${model.name} - ${model.type}`;
 
+          listItem.appendChild(img);
+          listItem.appendChild(text);
+          modelDropdown.appendChild(listItem);
+      });
+  }
 
-  if (Array.isArray(items)) {
-      items.forEach(item => {
-          const dropdownItem = document.createElement('a');
-          dropdownItem.href = '#';
-          dropdownItem.textContent = item;
-          dropdownItem.classList.add('dropdown-item');
-          dropdown.appendChild(dropdownItem);
-        });
-      
-      } else {
-          items.forEach(item => {
-              const dropdownItem = document.createElement('div');
-              dropdownItem.classList.add('dropdown-item');
+  if (!isDropdownFilled) {
+      generateModelList(models);
+      isDropdownFilled = true;
+  }
 
-              const img = document.createElement('img');
-img.src = item.img;
-img.alt = item.name;
-img.style.width = '100px';
-img.style.borderRadius = '8px';
-img.style.transition = 'transform 0.3s';
+  let upcomingModel;
+  console.log("Ny model:", upcomingModel); 
 
-const text = document.createElement('span');
-text.textContent = item.name;
+  let discontinuedModel = null;
+  console.log("Udgået model:", discontinuedModel); 
 
-const text = document.createElement('span');
-text.textContent = item.name;
+  function showMessage() {
+      let message = "Velkommen til Audi"; 
+      console.log(message);
+  }
+  showMessage();
 
-dropdownItem.appendChild(img);
-dropdownItem.appendChild(text);
-
-
-          }
-
-
-// Navigationselementerne//
-
-
-navLinks.forEach(link => {
-const text = link.textContent.trim();
-if (dropdownData[text]) {
-createDropdown(dropdownData[text], link);
-}
+  let specialOfferText = "Spar 10% på service!";
+  console.log(specialOfferText);
 });
-});
-
-
-const dropdownData = {
-Home: ['Book prøvetur', 'Find forhandler', 'Priser og brochurer'],
-Modeloverblik: [
-{ name: 'Audi R8 (Racerbil)', img: '/JSprojekt/Billeder/r8.jpg'},
-{ name: 'Audi Q4 e-tron (El-bil)', img: '/JSprojekt/Billeder/q4-e-tron.jpg' },
-{ name: 'Audi A6 Avant (Familievogn)', img: '/JSprojekt/Billeder/a6-avant.jpg' },   
-{ name: 'Audi Q7 (Arbejdsbil)', img: '/JSprojekt/Billeder/q7.jpg' },
-{ name: 'Audi Q8 (Stor bil)', img: '/JSprojekt/Billeder/q8.jpg' },
-{ name: 'Audi RS7 (Limited Edition)', img: '/JSprojekt/Billeder/rs7.jpg' },
-{ name: 'Audi A1 (Lille bil)', img: '/JSprojekt/Billeder/a1.jpg' },
-{ name: 'Audi A3 TDI (Økonomisk bil)', img: '/JSprojekt/Billeder/a3-tdi.jpg' }
-],
-'Find og køb': ['Kampagner', 'Finansiering', 'Forsikring', 'Elektrisk og hybrid', 'Opladning'],
-'Service og tilbehør': ['Audi SPORT', 'Om Audi', 'Kontakt os', 'Karriere'],
-'Alt om elbiler': ['System', 'Tilslutningsmuligheder', 'Forsikring', 'Andet'],
-'Stories of Progress': ['Audi 1910', 'Audi 1932', 'Audi S']
-};
-
