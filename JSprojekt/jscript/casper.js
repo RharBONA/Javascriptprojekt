@@ -1,43 +1,77 @@
-function updateValues() {
-  // Definer input ID'er
-  const inputIds = ["driveLength", "leasingLength", "initialPayment"];
+//Global scope - Disse variabler bruges i hele scriptet
+const config = {
+  baseMonthlyPayment: 6395,
+  minMonthlyPayment: 2000,
+  originalCarValue: 400000,
+  depreciationFactor: 0.4,
+};
+
+//Object til at håndtere inputværdier
+const userInput = {
+  driveLength: 15000,
+  leasingMonths: 36,
+  initialPayment: 0,
+};
+
+//Funktion til at hente input og opdatere userInput object
+function updateUserInput() {
+  const inputIds = ["driveLength", "leasingMonths", "initialPayment"];
+  inputIds.forEach((id) => {
+    userInput[id] = parseInt(document.getElementById(id).value) || 0;
+  });
+}
+
+//Funktion til at beregne månedlig betaling
+function calculateMonthlyPayment() {
+  let { driveLength, leasingMonths, initialPayment } = userInput; // 🏠 Local scope
+
+  let driveCostFactor = ((driveLength - 15000) / 5000) * 500;
+  let monthlyPayment = config.baseMonthlyPayment + driveCostFactor;
+
+  //Object med leasingjusteringer
+  const leasingAdjustments = { 12: 1000, 48: -500 };
+  monthlyPayment += leasingAdjustments[leasingMonths] || 0;
+
+  //Reducer betaling baseret på førstegangsbetaling
+  monthlyPayment -= initialPayment * 0.005;
+
+  //Boolean operator: Sikrer at månedlig betaling ikke går under minimum
+  return monthlyPayment < config.minMonthlyPayment
+    ? config.minMonthlyPayment
+    : monthlyPayment;
+}
+
+//Funktion til at beregne restværdi
+function calculateResidualValue(totalCost) {
+  let minResidualValue = config.originalCarValue * 0.2;
+  let estimatedResidual =
+    config.originalCarValue * (1 - config.depreciationFactor) - totalCost * 0.2;
+
+  return estimatedResidual < minResidualValue
+    ? minResidualValue
+    : estimatedResidual;
+}
+
+//Funktion til at opdatere UI
+function updateUI() {
   const outputIds = ["driveLengthValue", "leasingValue", "initialPaymentValue"];
-
-  // Hent inputværdier ved hjælp af et loop
-  let inputValues = inputIds.map(
-    (id) => parseInt(document.getElementById(id).value) || 0
-  );
-
-  let [driveLength, leasingMonths, initialPayment] = inputValues; // Destructuring
-
-  // Opdater UI ved hjælp af et loop
-  inputValues.forEach((value, index) => {
+  Object.values(userInput).forEach((value, index) => {
     document.getElementById(outputIds[index]).innerText =
       value.toLocaleString();
   });
 
-  // Beregn månedlig betaling
-  let monthlyPayment = calculateMonthlyPayment(
-    driveLength,
-    leasingMonths,
-    initialPayment
-  );
-
-  // Beregn samlet pris
-  let totalCost = leasingMonths * monthlyPayment + initialPayment;
-
-  // Beregn restværdi
+  let monthlyPayment = calculateMonthlyPayment();
+  let totalCost =
+    userInput.leasingMonths * monthlyPayment + userInput.initialPayment;
   let residualValue = calculateResidualValue(totalCost);
 
-  // Definer output data
   const results = [
     { label: "Månedlig betaling", value: monthlyPayment },
-    { label: "Førstegangsydelse", value: initialPayment },
+    { label: "Førstegangsydelse", value: userInput.initialPayment },
     { label: "Samlet pris", value: totalCost },
     { label: "Restværdi efter leasingperiode", value: residualValue },
   ];
 
-  // Opdater UI dynamisk
   document.getElementById("output").innerHTML = results
     .map(
       (result) => `<p>${result.label}: ${result.value.toLocaleString()} kr.</p>`
@@ -45,33 +79,18 @@ function updateValues() {
     .join("");
 }
 
-// Funktion til at beregne månedlig betaling
-function calculateMonthlyPayment(driveLength, leasingMonths, initialPayment) {
-  let baseMonthlyPayment = 6395;
-  let driveCostFactor = ((driveLength - 15000) / 5000) * 500;
-  let monthlyPayment = baseMonthlyPayment + driveCostFactor;
-
-  // Justering for leasinglængde
-  const leasingAdjustments = { 12: 1000, 48: -500 };
-  monthlyPayment += leasingAdjustments[leasingMonths] || 0;
-
-  // Reducer baseret på førstegangsbetaling
-  let downPaymentEffect = initialPayment * 0.005;
-  monthlyPayment -= downPaymentEffect;
-
-  return Math.max(monthlyPayment, 2000); // Minimum 2000 kr.
+//Funktion til at opdatere både input og UI
+function updateValues() {
+  updateUserInput(); // Opdater inputdata
+  updateUI(); // Opdater interface
 }
 
-// Funktion til at beregne restværdi
-function calculateResidualValue(totalCost) {
-  let originalCarValue = 400000;
-  let depreciationFactor = 0.4;
-  let minimumResidualValue = originalCarValue * 0.2;
+//Event listeners for automatisk opdatering
+document.querySelectorAll("input").forEach((input) => {
+  input.addEventListener("input", updateValues); // Opdater værdier når input ændres
+});
 
-  let residualValue =
-    originalCarValue * (1 - depreciationFactor) - totalCost * 0.2;
-  return Math.max(residualValue, minimumResidualValue);
-}
-
-// Kør ved indlæsning
-updateValues();
+// Hent inputfelter og tilknyt event listeners
+document.addEventListener("DOMContentLoaded", function () {
+  updateValues(); // Initial opdatering når DOM'en er klar
+});
