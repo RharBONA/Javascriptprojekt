@@ -10,6 +10,7 @@
   border-bottom: 3px solid black;
   display: flex;
   align-items: center;
+  justify-content: center; /* Center content horizontally */
   padding: 10px 20px;
   position: relative; /* Added to ensure z-index works */
   font-family: sans-serif; /* Ensure navbar uses default font (not "auditype") */
@@ -26,6 +27,7 @@
   padding: 0;
   margin: 0;
   flex-grow: 1;
+  justify-content: center; /* Center nav links horizontally */
 }
 
 .ilyas-nav-links li {
