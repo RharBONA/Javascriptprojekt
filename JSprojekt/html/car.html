@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Color Selector</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/JSprojekt/css/stylesheets.css" />
+  </head>
+  <body>
+    <!-- Jakob's kode -->
+    <div id="navbar-container"></div>
+    <div class="car-selector-container">
+      <div class="car-selector-content">
+        <div class="car-image-container">
+          <img
+            id="carImage"
+            src="/JSprojekt/images/bluecar.jpeg"
+            alt="Car Image"
+          />
+        </div>
+        <div class="car-color-selector">
+          <h2>Lakfarver</h2>
+          <div class="car-color-option selected" id="black">
+            <div class="color-circle black"></div>
+            <div>
+              <p>Magnetgrå</p>
+              <span>0 kr.</span>
+            </div>
+          </div>
+
+          <div class="car-color-option" id="white">
+            <div class="color-circle white"></div>
+            <div>
+              <p>Hvid</p>
+              <span>12.000 kr.</span>
+            </div>
+          </div>
+
+          <div class="car-color-option" id="blue">
+            <div class="color-circle blue"></div>
+            <div>
+              <p>Blå</p>
+              <span>12.000 kr.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/JSprojekt/jscript/carjs.js" defer></script>
+
+    <!-- Kasper's kode -->
+    <div class="leasing-container">
+      <h2>Audi Leasingberegner</h2>
+
+      <label for="driveLength">Årligt kørselsbehov (km):</label>
+      <div class="slider-container">
+        <input
+          type="range"
+          id="driveLength"
+          min="10000"
+          max="50000"
+          step="5000"
+          value="15000"
+          oninput="updateValues()"
+        />
+        <span id="driveLengthValue" class="value">15.000</span>
+      </div>
+
+      <label for="leasingLength">Leasinglængde (mdr.):</label>
+      <div class="slider-container">
+        <input
+          type="range"
+          id="leasingLength"
+          min="12"
+          max="48"
+          step="12"
+          value="12"
+          oninput="updateValues()"
+        />
+        <span id="leasingValue" class="value">12</span>
+      </div>
+
+      <label for="initialPayment">Førstegangsydelse (kr.):</label>
+      <div class="slider-container">
+        <input
+          type="range"
+          id="initialPayment"
+          min="20000"
+          max="50000"
+          step="5000"
+          value="30000"
+          oninput="updateValues()"
+        />
+        <span id="initialPaymentValue" class="value">30.000</span>
+      </div>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script src="/JSprojekt/jscript/casper.js" defer></script>
+  </body>
+</html>
