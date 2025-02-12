@@ -66,12 +66,13 @@ nav {
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  margin-right: 20px;
 }
 
 h2 {
   font-size: 24px;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
 }
 
