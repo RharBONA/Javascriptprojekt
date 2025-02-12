@@ -1,27 +1,21 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.content {
+.car-selector-content {
   display: flex;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-.slideshow-container {
+.car-image-container {
   flex: 1;
 }
 
-.slideshow-container img {
+.car-image-container img {
   width: fill;
   max-width: 1200px;
   height: auto;
 }
 
-.color-selector {
+.car-color-selector {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -29,7 +23,7 @@
   width: 100%;
 }
 
-.color-option {
+.car-color-option {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -39,14 +33,14 @@
   transition: all 0.3s ease;
 }
 
-.color-option p {
+.car-color-option p {
   font-size: 16px;
   font-weight: bold;
   color: #333;
   margin: 0;
 }
 
-.color-option span {
+.car-color-option span {
   font-size: 14px;
   color: #666;
 }
@@ -71,26 +65,26 @@
   background-color: #0000ff;
 }
 
-.color-option.selected .color-circle {
+.car-color-option.selected .color-circle {
   border: 4px solid black;
 }
 
 @media (max-width: 768px) {
-  .content {
+  .car-selector-content {
     flex-direction: column;
     gap: 30px;
   }
 
-  .color-selector {
+  .car-color-selector {
     display: block;
     gap: 10px;
   }
 
-  .color-option {
+  .car-color-option {
     justify-content: flex-start;
   }
 
-  .slideshow-container img {
+  .car-image-container img {
     max-width: 90%;
   }
 }

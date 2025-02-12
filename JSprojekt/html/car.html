@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Color Selector</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="/JSprojekt/css/carstyles.css" />
+    <link rel="stylesheet" href="/JSprojekt/css/stylesheets.css" />
   </head>
   <body>
-    <!-- Navbar container -->
     <div id="navbar-container"></div>
-
-    <!-- Main car selector container -->
-    <div id="car-selector-container">
-      <div class="content">
-        <div class="slideshow-container">
+    <div class="car-selector-container">
+      <div class="car-selector-content">
+        <div class="car-image-container">
           <img
             id="carImage"
             src="/JSprojekt/images/bluecar.jpeg"
@@ -22,9 +19,9 @@
           />
         </div>
 
-        <div class="color-selector">
+        <div class="car-color-selector">
           <h2>Lakfarver</h2>
-          <div class="color-option selected" id="black">
+          <div class="car-color-option selected" id="black">
             <div class="color-circle black"></div>
             <div>
               <p>Magnetgrå</p>
@@ -32,7 +29,7 @@
             </div>
           </div>
 
-          <div class="color-option" id="white">
+          <div class="car-color-option" id="white">
             <div class="color-circle white"></div>
             <div>
               <p>Hvid</p>
@@ -40,7 +37,7 @@
             </div>
           </div>
 
-          <div class="color-option" id="blue">
+          <div class="car-color-option" id="blue">
             <div class="color-circle blue"></div>
             <div>
               <p>Blå</p>

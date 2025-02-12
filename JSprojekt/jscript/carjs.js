@@ -4,7 +4,7 @@ const carImages = [
   { color: "blue", src: "/JSprojekt/images/bluecar.jpeg" },
 ];
 
-const colorOptions = document.querySelectorAll(".color-option");
+const carColorOptions = document.querySelectorAll(".car-color-option");
 const carImage = document.getElementById("carImage");
 
 // Globale variabler
@@ -17,7 +17,7 @@ const changeCarColor = (color, selectedOption) => {
   if (car) {
     carImage.src = car.src;
 
-    colorOptions.forEach((option) => option.classList.remove("selected"));
+    carColorOptions.forEach((option) => option.classList.remove("selected"));
     selectedOption.classList.add("selected");
 
     // Øg klik tælleren (Aritmetisk operation)
@@ -34,7 +34,7 @@ const changeCarColor = (color, selectedOption) => {
 };
 
 // Tilknyt event listeners til alle farve muligheder
-colorOptions.forEach((option) => {
+carColorOptions.forEach((option) => {
   option.addEventListener("click", function () {
     changeCarColor(this.id, this);
   });
@@ -57,7 +57,7 @@ $(document).ready(function () {
     var targetPage = $(this).data("page");
 
     // Skjul alle sider
-    $(".page").removeClass("active").hide();
+    $(".page-section").removeClass("active").hide();
 
     // Vis mål-siden
     $("#" + targetPage)
