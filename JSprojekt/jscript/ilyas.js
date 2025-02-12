@@ -1,74 +1,59 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // ✅ Arrays & Objects - Liste over Audi-modeller
-    const models = [
-        { name: "Audi R8", img: "/JSprojekt/Billeder/audi_r8.png", type: "Racerbil" },
-        { name: "Audi e-tron", img: "/JSprojekt/Billeder/audi_etron.png", type: "Elbil" },
-        { name: "Audi Q7", img: "/JSprojekt/Billeder/audi_q7.png", type: "Familiebil" },
-        { name: "Audi A6 Allroad", img: "/JSprojekt/Billeder/audi_a6_allroad.png", type: "Arbejdsbil" },
-        { name: "Audi Q8", img: "/JSprojekt/Billeder/audi_q8.png", type: "Stor bil" },
-        { name: "Audi RS6 Avant", img: "/JSprojekt/Billeder/audi_rs6.png", type: "Limited edition" },
-        { name: "Audi A1", img: "/JSprojekt/Billeder/audi_a1.png", type: "Lille bil" },
-        { name: "Audi A3 TDI", img: "/JSprojekt/Billeder/audi_a3_tdi.png", type: "Økonomisk bil" }
-    ];
+const models = [
+    { name: "Audi R8", img1: "images/audi_r8.png", img2: "images/audi_r8_alt.png", type: "Racerbil" },
+    { name: "Audi e-tron", img1: "images/audi_etron.png", img2: "images/audi_etron_alt.png", type: "Elbil" },
+    { name: "Audi Q7", img1: "images/audi_q7.png", img2: "images/audi_q7_alt.png", type: "Familiebil" },
+    { name: "Audi A6 Allroad", img1: "images/audi_a6_allroad.png", img2: "images/audi_a6_allroad_alt.png", type: "Arbejdsbil" },
+    { name: "Audi Q8", img1: "images/audi_q8.png", img2: "images/audi_q8_alt.png", type: "Stor bil" },
+    { name: "Audi RS6 Avant", img1: "images/audi_rs6.png", img2: "images/audi_rs6_alt.png", type: "Limited edition" },
+    { name: "Audi A1", img1: "images/audi_a1.png", img2: "images/audi_a1_alt.png", type: "Lille bil" },
+    { name: "Audi A3 TDI", img1: "images/audi_a3_tdi.png", img2: "images/audi_a3_tdi_alt.png", type: "Økonomisk bil" }
+];
 
-    // ✅ Global scope - Denne variabel kan tilgås overalt
-    let isDropdownFilled = false;
+const modelMenu = document.getElementById("model-menu");
 
-    // ✅ Funktion til at generere bilmodellerne i dropdown
-    function generateModelList(modelsArray) {
-        let modelDropdown = document.getElementById("model-dropdown");
+// Generer dropdown-menu med biler
+models.forEach(model => {
+    let li = document.createElement("li");
+    li.classList.add("model-item");
 
-        modelsArray.forEach(model => {
-            let listItem = document.createElement("li");
-            let img = document.createElement("img");
-            let text = document.createElement("p");
+    let img = document.createElement("img");
+    img.src = model.img1;
+    img.alt = model.name;
 
-            img.src = model.img;
-            img.alt = model.name;
-            text.textContent = `${model.name} - ${model.type}`;
+    // Billedeskift
+    let isFirstImage = true;
+    setInterval(() => {
+        img.src = isFirstImage ? model.img2 : model.img1;
+        isFirstImage = !isFirstImage;
+    }, 2000);
 
-            listItem.appendChild(img);
-            listItem.appendChild(text);
-            modelDropdown.appendChild(listItem);
-        });
-    }
+    let span = document.createElement("span");
+    span.textContent = model.name;
 
-    // ✅ If-else statement - Fylder dropdown kun én gang
-    if (!isDropdownFilled) {
-        generateModelList(models);
-        isDropdownFilled = true;
-    }
-
-    // ✅ Funktion med if-else statement for at tjekke biltilgængelighed
-    function checkCarAvailability(modelName) {
-        let carFound = models.some(model => model.name === modelName);
-        let messageBox = document.getElementById("availability-message");
-
-        if (carFound) {
-            messageBox.textContent = `${modelName} er tilgængelig!`;
-            messageBox.style.color = "green";
-        } else {
-            messageBox.textContent = `${modelName} er ikke på lager.`;
-            messageBox.style.color = "red";
-        }
-    }
-
-    // ✅ Event Listener - Gør så knapperne kan tjekke biltilgængelighed
-    document.getElementById("check-r8").addEventListener("click", function() {
-        checkCarAvailability("Audi R8");
-    });
-
-    document.getElementById("check-tt").addEventListener("click", function() {
-        checkCarAvailability("Audi TT");
-    });
-
-    // ✅ Boolean - Eksempel på en sand/falsk værdi
-    let specialOffer = true;
-    let offerMessage = document.getElementById("offer-message");
-    offerMessage.textContent = specialOffer ? "🎉 Spar 10% på service!" : "Ingen tilbud i dag.";
-    
-    // ✅ Aritmetiske operationer
-    let totalModels = models.length;
-    let halfModels = Math.floor(totalModels / 2);
-    document.getElementById("model-count").textContent = `Vi har ${totalModels} modeller, og halvdelen er ${halfModels}.`;
+    li.appendChild(img);
+    li.appendChild(span);
+    modelMenu.appendChild(li);
 });
+
+// Tjek tilgængelighed
+function checkAvailability(model) {
+    const availability = {
+        "Audi R8": 4,
+        "Audi A4": 0
+    };
+
+    if (availability[model] > 0) {
+        alert(`${model} er tilgængelig! Der er ${availability[model]} tilbage.`);
+    } else {
+        alert(`${model} er desværre ikke på lager.`);
+    }
+}
+
+// Rabat på elbiler
+function checkDiscount(model) {
+    if (model === "Audi e-tron") {
+        alert("Tillykke! Du får 10% rabat på denne elbil.");
+    } else {
+        alert("Ingen rabat på denne model.");
+    }
+}
