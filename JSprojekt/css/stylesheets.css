@@ -294,7 +294,26 @@ nav ul li a:hover {
     opacity: 1;
   }
 }
+.see-more-button {
+  display: flex;
+  background-color: #000000;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  font-size: 18px;
+  padding: 15px 30px;
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
+.button-container {
+  text-align: center; /* Centrerer knappen horisontalt */
+  margin-top: 20px; /* Giver lidt afstand fra slideren */
+}
 /* Jakob */
 
 .car-color-selector h2 {
