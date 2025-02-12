@@ -48,5 +48,55 @@
     </div>
 
     <script src="/JSprojekt/jscript/carjs.js" defer></script>
+
+    <div class="leasing-container">
+      <h2>Audi Leasingberegner</h2>
+
+      <label for="driveLength">Årligt kørselsbehov (km):</label>
+      <div class="slider-container">
+        <input
+          type="range"
+          id="driveLength"
+          min="10000"
+          max="50000"
+          step="5000"
+          value="15000"
+          oninput="updateValues()"
+        />
+        <span id="driveLengthValue" class="value">15.000</span>
+      </div>
+
+      <label for="leasingLength">Leasinglængde (mdr.):</label>
+      <div class="slider-container">
+        <input
+          type="range"
+          id="leasingLength"
+          min="12"
+          max="48"
+          step="12"
+          value="12"
+          oninput="updateValues()"
+        />
+        <span id="leasingValue" class="value">12</span>
+      </div>
+
+      <label for="initialPayment">Førstegangsydelse (kr.):</label>
+      <div class="slider-container">
+        <input
+          type="range"
+          id="initialPayment"
+          min="20000"
+          max="50000"
+          step="5000"
+          value="30000"
+          oninput="updateValues()"
+        />
+        <span id="initialPaymentValue" class="value">30.000</span>
+      </div>
+
+      <div class="output" id="output"></div>
+    </div>
+
+    <script src="/JSprojekt/jscript/casper.js" defer></script>
   </body>
 </html>
