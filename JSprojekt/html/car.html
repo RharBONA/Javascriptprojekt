@@ -51,51 +51,64 @@
     <script src="/JSprojekt/jscript/carjs.js" defer></script>
 
     <!-- Kasper's kode -->
-    <div class="leasing-container">
-      <h2>Audi Leasingberegner</h2>
 
-      <label for="driveLength">Årligt kørselsbehov (km):</label>
-      <div class="slider-container">
-        <input
-          type="range"
-          id="driveLength"
-          min="10000"
-          max="50000"
-          step="5000"
-          value="15000"
-        />
-        <span id="driveLengthValue" class="value">15.000</span>
+    <div id="navbar-container"></div>
+    <div class="car-selector-container">
+      <div class="car-selector-content">
+        <div class="car-image-container">
+          <img
+            id="carImage"
+            src="/JSprojekt/images/bluecar.jpeg"
+            alt="Car Image"
+          />
+        </div>
+        <div class="leasing-container">
+          <h2>Audi Leasingberegner</h2>
+
+          <label for="driveLength">Årligt kørselsbehov (km):</label>
+          <div class="slider-container">
+            <input
+              type="range"
+              id="driveLength"
+              min="10000"
+              max="50000"
+              step="5000"
+              value="15000"
+            />
+            <span id="driveLengthValue" class="value">15.000</span>
+          </div>
+
+          <label for="leasingMonths">Leasinglængde (mdr.):</label>
+          <div class="slider-container">
+            <input
+              type="range"
+              id="leasingMonths"
+              min="12"
+              max="48"
+              step="12"
+              value="12"
+            />
+            <span id="leasingValue" class="value">12</span>
+          </div>
+
+          <label for="initialPayment">Førstegangsydelse (kr.):</label>
+          <div class="slider-container">
+            <input
+              type="range"
+              id="initialPayment"
+              min="20000"
+              max="50000"
+              step="5000"
+              value="30000"
+            />
+            <span id="initialPaymentValue" class="value">30.000</span>
+          </div>
+
+          <div class="output" id="output"></div>
+        </div>
+
+        <script src="/JSprojekt/jscript/casper.js" defer></script>
       </div>
-
-      <label for="leasingMonths">Leasinglængde (mdr.):</label>
-      <div class="slider-container">
-        <input
-          type="range"
-          id="leasingMonths"
-          min="12"
-          max="48"
-          step="12"
-          value="12"
-        />
-        <span id="leasingValue" class="value">12</span>
-      </div>
-
-      <label for="initialPayment">Førstegangsydelse (kr.):</label>
-      <div class="slider-container">
-        <input
-          type="range"
-          id="initialPayment"
-          min="20000"
-          max="50000"
-          step="5000"
-          value="30000"
-        />
-        <span id="initialPaymentValue" class="value">30.000</span>
-      </div>
-
-      <div class="output" id="output"></div>
     </div>
-
-    <script src="/JSprojekt/jscript/casper.js" defer></script>
   </body>
 </html>
