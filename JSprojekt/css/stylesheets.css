@@ -1,139 +1,121 @@
-* { border: 1px dotted black;}
-body {
-  margin: 0;
-  font-family: Helvetica, sans-serif;
-
+* { 
+  border: 1px dotted black; /* Sætter en dotted sort kant rundt om alle elementer (bruges typisk til debugging) */
 }
 
+body {
+  margin: 0; /* Fjerner standard margin omkring body */
+  font-family: Helvetica, sans-serif; /* Sætter skrifttypen til Helvetica (fallback til sans-serif) */
+}
+
+
+
+
+
+
 .navbar {
-  width: 100%;
-  height: 72px;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  box-sizing: border-box;
-  position: relative;
+  width: 100%; /* Sætter navbaren til at fylde hele bredden */
+  height: 72px; /* Sætter højden af navbaren */
+  background: white; /* Gør baggrunden hvid */
+  display: flex; /* Bruger Flexbox til at arrangere indholdet */
+  align-items: center; /* Centrerer indholdet vertikalt */
+  justify-content: space-between; /* Fordeler indholdet med plads imellem */
+  padding: 0 20px; /* Lægger 20px padding på venstre og højre */
+  box-sizing: border-box; /* Inkluderer padding og border i bredden/højden */
+  position: relative; /* Gør navbaren relativt positioneret til absolutte elementer */
 }
 
 .logo {
-  display: flex;
-  align-items: center;
+  display: flex; /* Bruger Flexbox til logoet */
+  align-items: center; /* Centrerer logoet vertikalt */
 }
 
 nav {
-  display: flex;
-  gap: 24px;
+  display: flex; /* Bruger Flexbox til navigationen */
+  gap: 24px; /* Sætter afstand mellem navigationselementerne */
 }
 
 .nav-link {
-  color: #666666;
-  font-size: 16px;
-  font-weight: 400;
-  text-decoration: none;
-  line-height: 24px;
+  color: #666666; /* Sætter farven på links til grå */
+  font-size: 16px; /* Sætter tekststørrelsen */
+  font-weight: 400; /* Sætter skrifttypens vægt (normal) */
+  text-decoration: none; /* Fjerner understregning på links */
+  line-height: 24px; /* Øger linjehøjden for bedre læsbarhed */
 }
 
 .nav-link:hover {
-  color: black;
+  color: black; /* Skifter linkfarven til sort ved hover */
 }
 
 .search-icon {
-  display: flex;
-  align-items: center;
+  display: flex; /* Bruger Flexbox til at arrangere søgeikonet */
+  align-items: center; /* Centrerer ikonet vertikalt */
 }
 
-
-
-
-
-/* VITHULAN */
-
-
-
-/* Slideshow container */
+/* Slideshow (Billedkarusel) */
 .slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+  max-width: 1000px; /* Sætter maksimal bredde på slideshowet */
+  position: relative; /* Gør slideshow-containeren relativt positioneret for absolutte elementer */
+  margin: auto; /* Centrerer slideshowet horisontalt */
 }
 
-/* Hide the images by default */
 .mySlides {
-  display: none;
+  display: none; /* Skjuler alle slides som standard */
 }
 
-/* Next & previous buttons */
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+  cursor: pointer; /* Ændrer cursoren til en pointer (klikbar) */
+  position: absolute; /* Absolut positionering */
+  top: 50%; /* Placerer knapperne vertikalt i midten */
+  width: auto; /* Gør knapperne størrelsen automatisk */
+  margin-top: -22px; /* Justerer knapperne vertikalt for at centrere dem */
+  padding: 16px; /* Lægger padding på knapperne */
+  color: white; /* Sætter knappernes tekstfarve til hvid */
+  font-weight: bold; /* Gør tekst i knapperne fed */
+  font-size: 18px; /* Sætter fontstørrelsen */
+  transition: 0.6s ease; /* Sætter en overgangsanimation ved hover */
+  border-radius: 0 3px 3px 0; /* Rundede hjørner på højre side */
 }
 
-/* Position the "next button" to the right */
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+  right: 0; /* Placerer "next"-knappen til højre */
+  border-radius: 3px 0 0 3px; /* Rundede hjørner på venstre side */
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.8); /* Ændrer baggrundsfarven ved hover */
 }
 
-/* Caption text */
 .text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+  color: #f2f2f2; /* Sætter tekstfarven til lys grå */
+  font-size: 15px; /* Sætter tekststørrelsen */
+  padding: 8px 12px; /* Tilføjer padding rundt om teksten */
+  position: absolute; /* Absolut positionering af teksten */
+  bottom: 8px; /* Placerer teksten nederst */
+  width: 100%; /* Sætter bredden af tekstområdet til 100% af slideshowet */
+  text-align: center; /* Centrerer teksten horisontalt */
+
 }
 
-/* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+  color: #f2f2f2; /* Sætter farven på nummereringen til lys grå */
+  font-size: 12px; /* Sætter tekststørrelsen */
+  padding: 8px 12px; /* Tilføjer padding rundt om nummereringen */
+  position: absolute; /* Absolut positionering af nummereringen */
+  top: 0; /* Placerer nummereringen øverst */
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
+
 
 .active, .dot:hover {
-  background-color: #717171;
+  background-color: #717171; /* Ændrer baggrundsfarven ved hover og for aktive prikker */
 }
 
-/* Fading animation */
 .fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+  animation-name: fade; /* Anvender fade animation */
+  animation-duration: 1.5s; /* Sætter varigheden af animationen */
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {opacity: .4} /* Starter animationen med 40% opacitet */
+  to {opacity: 1} /* Slutter animationen med fuld opacitet */
 }
