@@ -1,6 +1,25 @@
+* {
+  border: 0px dotted black;
+}
+
+/* Casper har lavet denne - skulle gerne være font fra Audi hjemmeside*/
+@font-face {
+  font-family: "auditype";
+  src: url(/font/Auditype\ Extended\ Normal.woff2) format(woff2),
+    url(/font/Auditype\ Extended\ Bold.woff2) format(woff2);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  font-stretch: 100% 130%;
+}
+
 body {
   margin: 0;
-  font-family: Helvetica, sans-serif;
+  font-family: "auditype", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
@@ -40,4 +59,242 @@ nav {
 .search-icon {
   display: flex;
   align-items: center;
+}
+
+/* Casper leasing beregner */
+.container {
+  width: 400px;
+  padding: 30px;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  text-align: left;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type="range"] {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #333333;
+  outline: none;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #000000;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid white;
+  outline: 1px solid black;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.value {
+  width: 50px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.output {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 0px;
+  text-align: left;
+}
+
+/* Ilyas */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Ilyas - Navigation */
+nav {
+  background: #fffdfd;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background: #555;
+}
+
+/* Ilyas styling til dropdown */
+.dropdown ul {
+  display: none;
+  position: absolute;
+  background: rgb(255, 249, 249);
+  padding: 10px;
+  border: 1px solid #ddd;
+  list-style: none;
+  width: 200px;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown:hover ul {
+  display: block;
+}
+
+/* Ilyas bilmodellerne */
+#model-dropdown img {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: 5px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+#model-dropdown img:hover {
+  transform: scale(1.1);
+}
+
+
+/* VITHULAN */
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
