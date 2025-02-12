@@ -196,6 +196,13 @@ nav ul li a:hover {
   transform: scale(1.1);
 }
 
+#availability-message, #offer-message, #model-count {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
 /* VITHULAN */
 
 /* Slideshow container */
@@ -293,6 +300,11 @@ nav ul li a:hover {
 
 /* Jakob */
 
+.car-color-selector h2 {
+  text-align: left;
+  align-self: flex-start;
+}
+
 .car-selector-content {
   display: flex;
   align-items: center;
@@ -318,6 +330,8 @@ nav ul li a:hover {
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  align-self: flex-start;
+  padding-top: 32px;
 }
 
 .car-color-option {
@@ -328,6 +342,7 @@ nav ul li a:hover {
   padding: 10px;
   border-radius: 5px;
   transition: all 0.3s ease;
+  text-align: left;
 }
 
 .car-color-option p {
