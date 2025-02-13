@@ -13,7 +13,7 @@
   justify-content: center; /* Center content horizontally */
   padding: 10px 20px;
   position: relative; /* Added to ensure z-index works */
-  font-family: inherit;
+
   z-index: 100; /* Ensures navbar is in front of other elements */
 }
 
@@ -59,7 +59,7 @@
   padding: 0;
   width: 200px;
   z-index: 10; /* Ensures dropdown is in front of other elements */
-
+  font-family: sans-serif; /* Ensure dropdown uses default font (not "auditype") */
 }
 
 .ilyas-dropdown:hover .ilyas-dropdown-menu {
