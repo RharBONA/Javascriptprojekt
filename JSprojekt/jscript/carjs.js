@@ -7,9 +7,8 @@ const carImages = [
 const carColorOptions = document.querySelectorAll(".car-color-option");
 const carImage = document.getElementById("carImage");
 
-// Globale variabler
-let clickCount = 0; // Aritmetisk operation (tæl klik)
-let isColorChanged = false; // Boolean variabel
+let clickCount = 0;
+let isColorChanged = false;
 
 const changeCarColor = (color, selectedOption) => {
   const car = carImages.find((car) => car.color === color);
@@ -20,10 +19,8 @@ const changeCarColor = (color, selectedOption) => {
     carColorOptions.forEach((option) => option.classList.remove("selected"));
     selectedOption.classList.add("selected");
 
-    // Øg klik tælleren (Aritmetisk operation)
     clickCount++;
 
-    // Opdater Boolean værdi
     isColorChanged = true;
 
     console.log(`Farven er ændret ${clickCount} gange.`);
@@ -33,7 +30,6 @@ const changeCarColor = (color, selectedOption) => {
   }
 };
 
-// Tilknyt event listeners til alle farve muligheder
 carColorOptions.forEach((option) => {
   option.addEventListener("click", function () {
     changeCarColor(this.id, this);
@@ -46,20 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 $(document).ready(function () {
-  // Indlæs navbar fra navbar.html i navbar-container
   $("#navbar-container").load("navbar.html");
 
-  // Tilføj event listener for at håndtere sideskift
   $(".nav-link").click(function (event) {
-    event.preventDefault(); // Forhindr standard linkadfærd
+    event.preventDefault();
 
-    // Hent ID for mål-side fra data-page attributten
     var targetPage = $(this).data("page");
 
-    // Skjul alle sider
     $(".page-section").removeClass("active").hide();
 
-    // Vis mål-siden
     $("#" + targetPage)
       .addClass("active")
       .show();
