@@ -1,11 +1,11 @@
-// 1. Const, let & var (definering af variabler)
+// Const, let & IKKE var. )
 const priceBeforeDiscount = 500000; // Originalpris
 const discount = 0.1; // 10% rabat
 let finalPrice = priceBeforeDiscount - (priceBeforeDiscount * discount);
 
-// 2. Loops (forEach bruges senere i koden)
+// Loops (forEach bruges senere i koden)
 
-// 3. Functions (Opretter en funktion til at tjekke bilmodeller)
+// Functions (Opretter en funktion til at tjekke bilmodeller)
 function checkCarAvailability() {
     let carName = prompt("Hvilken bilmodel leder du efter?");
     let carFound = models.some(model => model.name.toLowerCase() === carName.toLowerCase());
@@ -17,7 +17,7 @@ function checkCarAvailability() {
     }
 }
 
-// 4. Arrays (Liste over Audi-modeller)
+// Arrays (Liste over Audi-modeller)
 const models = [
     { name: "Audi R8", img1: "../images/audi_r8.png", img2: "../images/audi_r8_alt.png", type: "Racerbil" },
     { name: "Audi e-tron", img1: "../images/audi_etron.png", img2: "../images/audi_etron_alt.png", type: "Elbil" },
@@ -29,7 +29,7 @@ const models = [
     { name: "Audi A3 TDI", img1: "../images/audi_a3_tdi.png", img2: "../images/audi_a3_tdi_alt.png", type: "Økonomisk bil" }
 ];
 
-// 5. DOM (Manipulation af HTML-struktur)
+// DOM (Manipulation af HTML-struktur)
 document.addEventListener("DOMContentLoaded", function() {
     const modelList = document.getElementById("ilyas-model-list");
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
         listItem.appendChild(name);
         modelList.appendChild(listItem);
 
-        // 6. If else (Betingelse for at skifte billede)
+        // If else (Betingelse for at skifte billede)
         let isFirstImage = true;
         setInterval(() => {
             if (isFirstImage) {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
             isFirstImage = !isFirstImage;
         }, 2000);
 
-        // 10. Events (Håndtering af brugerinteraktioner)
+        // Events (Håndtering af brugerinteraktioner)
         listItem.addEventListener("mouseenter", () => {
             img.style.transform = "scale(1.1)";
         });
@@ -74,19 +74,19 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // 7. Objects (Audi-modellerne er defineret som objekter i models-arrayet)
+    // Objects (Audi-modellerne er defineret som objekter i models-arrayet)
 
-    // 8. Operators (Tjekker om en bil er på lager ved at sammenligne brugerinput med arrayets værdier)
+    // Operators (Tjekker om en bil er på lager ved at sammenligne brugerinput med arrayets værdier)
     document.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             checkCarAvailability();
         }
     });
 
-    // 9. Global og local scope (Variablerne priceBeforeDiscount og discount er globale, finalPrice er lokal)
+    // Global og local scope (Variablerne priceBeforeDiscount og discount er globale, finalPrice er lokal)
     
-    // 11. Arithmetic operations (Udregner rabatten og viser den i en alert)
+    // Arithmetic operations (Udregner rabatten og viser den i en alert)
     alert(`Prisen efter 10% rabat: ${finalPrice} DKK`);
 
-    // 12. Boolean datatypes (Bruges i if-else tjek for biltilgængelighed)
+    // Boolean datatypes (Bruges i if-else tjek for biltilgængelighed)
 });
