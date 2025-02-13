@@ -40,19 +40,3 @@ document.addEventListener("DOMContentLoaded", function () {
   const blackOption = document.getElementById("black");
   changeCarColor("black", blackOption);
 });
-
-$(document).ready(function () {
-  $("#navbar-container").load("navbar.html");
-
-  $(".nav-link").click(function (event) {
-    event.preventDefault();
-
-    var targetPage = $(this).data("page");
-
-    $(".page-section").removeClass("active").hide();
-
-    $("#" + targetPage)
-      .addClass("active")
-      .show();
-  });
-});
