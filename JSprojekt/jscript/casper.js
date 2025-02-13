@@ -23,7 +23,7 @@ function updateUserInput() {
 
 //Funktion til at beregne månedlig betaling
 function calculateMonthlyPayment() {
-  let { driveLength, leasingMonths, initialPayment } = userInput; // 🏠 Local scope
+  let { driveLength, leasingMonths, initialPayment } = userInput; //Local scope
 
   let driveCostFactor = ((driveLength - 15000) / 5000) * 500;
   let monthlyPayment = config.baseMonthlyPayment + driveCostFactor;
