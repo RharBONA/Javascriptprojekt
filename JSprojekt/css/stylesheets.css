@@ -13,7 +13,7 @@
   justify-content: center; /* Center content horizontally */
   padding: 10px 20px;
   position: relative; /* Added to ensure z-index works */
-  font-family: sans-serif; /* Ensure navbar uses default font (not "auditype") */
+  font-family: inherit;
   z-index: 100; /* Ensures navbar is in front of other elements */
 }
 
